@@ -1,0 +1,16 @@
+num = int(input("Enter the number of sound levels dB: "))
+
+if num >= 130:
+    print("Jackhammer Noise", num, "dB")
+elif num >= 106:
+    print("Gas lawnmower Noise", num, "dB")
+elif num >= 70:
+    print("Alarm clock Noise", num, "dB")
+elif num >= 40:
+    print("Quiet room Noise", num, "dB")
+elif num >= 1:
+    print("small Noise", num, "dB")
+elif num == 0:
+    print("No Noise", num, "dB")
+else:
+    print("Invalid input. Please enter a non-negative number.")

@@ -1,0 +1,39 @@
+print("Parking opens from 7:00 to 23:00")
+
+while True:
+    try:
+        Arrivalhour = int(input("Enter the hour of arrival (7-23): "))
+        if Arrivalhour < 7 or Arrivalhour > 23:
+            print("Invalid hour. Please enter an hour between 7 and 23.")
+            continue
+
+        Arrivalminute = int(input("Enter the minute of arrival (0-59): "))
+        if Arrivalminute < 0 or Arrivalminute > 59:
+            print("Invalid minute. Please enter a minute between 0 and 59.")
+            continue
+
+        Departurehour = int(input("Enter the hour of departure (7-23): "))
+        if Departurehour < 7 or Departurehour > 23:
+            print("Invalid hour. Please enter an hour between 7 and 23.")
+            continue
+
+        Departureminute = int(input("Enter the minute of departure (0-59): "))
+        if Departureminute < 0 or Departureminute > 59:
+            print("Invalid minute. Please enter a minute between 0 and 59.")
+            continue
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid time.")
+
+    
+
+if (Departurehour < Arrivalhour) or (Departurehour == Arrivalhour and Departureminute < Arrivalminute):
+    print("Invalid input. Departure time must be after arrival time.")
+elif (Departurehour == Arrivalhour and Departureminute - Arrivalminute < 15) or (Departurehour - Arrivalhour < 1 and Departureminute - Arrivalminute < 15):
+    print("Free parking for under 15 minutes.")
+elif (Departurehour - Arrivalhour == 0 and Departureminute - Arrivalminute >= 15) or (Departurehour - Arrivalhour < 3):
+    print("Parking fee: 10 Baths")
+elif (Departurehour - Arrivalhour == 3 and Departureminute - Arrivalminute >= 0) or (Departurehour - Arrivalhour < 6):
+    print("Parking fee: 20 Baths")
+else:
+    print("Parking fee: 200 Baths")
